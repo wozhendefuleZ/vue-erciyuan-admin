@@ -1,17 +1,15 @@
-import { defineStore } from 'pinia';
-import { ref } from 'vue';
+import { defineStore } from 'pinia'
+import { ref } from 'vue'
 
 export const mainStore = defineStore(
   'index',
   () => {
-    const token = ref('');
+    const token = ref('')
     const setToken = () => {
-      token.value = 'www';
-    };
-
-    return { setToken, token };
+      token.value = 'www'
+    }
+    return { setToken, token }
   },
-
   {
     // persist: true,
     persist: {
@@ -20,4 +18,4 @@ export const mainStore = defineStore(
       paths: ['token'],
     },
   }
-);
+)

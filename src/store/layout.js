@@ -33,14 +33,21 @@ const filterAsyncRoutes = (Apiroutes) => {
 export const layoutStore = defineStore(
   'layout',
   () => {
+    const theme = ref(true)
+
+    const setTheme = (val) => {
+      theme.value = val
+    }
+
+    // 展开
     const isCollapse = ref(true)
+    // 路由
     const concatRoutes = ref([])
     const setRoutes = (newRoutes) => {
       concatRoutes.value = constantRoutes.concat(newRoutes)
     }
     const generateRoutes = () => {
       return new Promise((resolve, reject) => {
-   
         listRoutes().then(({ data: asyncRoutes }) => {
           const accessedRoutes = filterAsyncRoutes(asyncRoutes)
           setRoutes(accessedRoutes)
@@ -49,7 +56,7 @@ export const layoutStore = defineStore(
       })
     }
 
-    return { isCollapse, concatRoutes, generateRoutes, setRoutes }
+    return { isCollapse, concatRoutes, generateRoutes, setRoutes, theme, setTheme }
   },
   {
     persist: true,

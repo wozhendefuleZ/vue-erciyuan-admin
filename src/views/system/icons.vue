@@ -1,5 +1,5 @@
 <template>
-  <div class="icons-container px-10px bg-#fff overflow-auto h-full">
+  <div class="icons-container px-10px bg-#fff dark:bg-#000 dark:text-#fff overflow-auto h-full">
     <div class="grid_self">
       <div v-for="item of svg_icons" :key="item" @click="handleClipboard(generateIconCode(item), $event)">
         <el-tooltip effect="dark" :content="generateIconCode(item)" placement="top">
